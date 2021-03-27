@@ -71,7 +71,7 @@ public class BlastGUIMain extends JPanel {
 		add(pTF, c);
 		textField.setEditable(true);
 
-		JTextArea textArea = new JTextArea(8, 5);
+		JTextArea textArea = new JTextArea();
 		textArea.setEditable(false);
 		JScrollPane scrollPane = new JScrollPane(textArea);
 		scrollPane.setPreferredSize(new Dimension(200, 150));
@@ -82,20 +82,19 @@ public class BlastGUIMain extends JPanel {
 		add(scrollPane, c);
 
 		JButton consulta = new JButton("Consultar");
-		JPanel pC = new JPanel();
 		consulta.setPreferredSize(new Dimension(120, 30));
-		pC.add(consulta);
+		c.fill = GridBagConstraints.NONE;
 		c.gridx = 0;
 		c.gridwidth = 1;
 		c.gridy = 2;
-		add(pC, c);
+		add(consulta, c);
 		consulta.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				String dataBaseFile = new String("resources/yeast.aa");
-				String dataBaseIndexes = new String("resources/yeast.aa.indexs");
+				String dataBaseFile = "resources/yeast.aa";
+				String dataBaseIndexes = "resources/yeast.aa.indexs";
 				BlastController bCnt = new BlastController();
 				char c = proteinas.isSelected() ? 'p' : 'n';
 				String result;
